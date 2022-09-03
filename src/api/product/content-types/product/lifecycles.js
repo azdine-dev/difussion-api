@@ -7,7 +7,7 @@ const slugify = require("slugify");
  */
 
 module.exports = {
-  beforeCreate: async (data) => {
+  beforeCreate: async (model) => {
     if (model.name) {
       model.update({
         slug: slugify(model.name.toLowerCase()),
