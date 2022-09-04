@@ -7,4 +7,14 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  upload: {
+    config: {
+      providerOPtions: {
+        sizeLimit: 250 * 1024 * 1024,
+        localServer: {
+          maxage: 300000,
+        },
+      },
+    },
+  },
 });
