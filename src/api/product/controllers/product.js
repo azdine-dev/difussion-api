@@ -182,16 +182,31 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     }
 
     let totalProducts;
-    totalProducts = await strapi.db
-      .query("product")
-      .model.query((qb) => {
-        qb.where("vendor", "LIKE", "%elements%")
-          .orWhere("vendor", "LIKE", "%" + demo + ",%")
-          .orWhere("vendor", "LIKE", "%" + demo);
-      })
-      .fetchAll();
+    totalProducts = await strapi.db.query("api::product.product").findMany({
+      populate: true,
+      where: {
+        $or: [
+          {
+            vendor: {
+              $contains: "elements",
+            },
+          },
+          {
+            vendor: {
+              $contains: demo,
+            },
+          },
+        ],
+      },
+    });
+    // .model.query((qb) => {
+    //   qb.where("vendor", "LIKE", "%elements%")
+    //     .orWhere("vendor", "LIKE", "%" + demo + ",%")
+    //     .orWhere("vendor", "LIKE", "%" + demo);
+    // })
+    // .fetchAll();
 
-    totalProducts = totalProducts.toJSON();
+    // totalProducts = totalProducts.toJSON();
 
     let filteredProducts = totalProducts.filter((product) => {
       let categoryFlag = false;
