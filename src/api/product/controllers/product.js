@@ -211,8 +211,8 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     let filteredProducts = totalProducts.filter((product) => {
       let categoryFlag = false;
       if (category) {
-        for (let i = 0; i < product.category.length; i++) {
-          product.category[i].slug === category && (categoryFlag = true);
+        for (let i = 0; i < product.categories.length; i++) {
+          product.categories[i].slug === category && (categoryFlag = true);
         }
       } else {
         categoryFlag = true;
