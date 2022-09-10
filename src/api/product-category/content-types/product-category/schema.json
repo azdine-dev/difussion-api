@@ -15,14 +15,20 @@
     "name": {
       "type": "string"
     },
-    "slug": {
-      "type": "string"
-    },
     "products": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::product.product",
-      "mappedBy": "categories"
+      "inversedBy": "categories"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "sub_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-category.sub-category"
     }
   }
 }

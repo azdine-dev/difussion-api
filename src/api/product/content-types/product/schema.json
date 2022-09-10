@@ -83,21 +83,22 @@
     "sold": {
       "type": "integer"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product-category.product-category",
-      "inversedBy": "products"
-    },
     "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-category.product-category",
+      "mappedBy": "products"
     }
   }
 }

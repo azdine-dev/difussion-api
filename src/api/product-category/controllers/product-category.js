@@ -15,5 +15,23 @@ module.exports = createCoreController(
         .query("api::product-category.product-category")
         .count({ where: query });
     },
+
+    async findByProducCategoryName(ctx) {
+      let categories;
+      const { category } = ctx.params;
+      categories = await strapi.db
+        .query("api::product-category.product-category")
+        .findOne({
+          populate: true,
+          where: {
+            name: {
+              $eq: category,
+            },
+          },
+        });
+      return {
+        categories: categories,
+      };
+    },
   }
 );

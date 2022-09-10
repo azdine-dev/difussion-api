@@ -3,8 +3,8 @@ module.exports = {
     {
       // Path defined with a URL parameter
       method: "GET",
-      path: "/product-categories/count",
-      handler: "product-category.count",
+      path: "/sub-categories/count",
+      handler: "sub-category.count",
     },
   ],
 };

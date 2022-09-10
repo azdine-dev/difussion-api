@@ -63,6 +63,7 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
       categories = await strapi.db
         .query("api::product-category.product-category")
         .findOne({
+          populate: true,
           where: {
             name: category[i].name,
           },
