@@ -7,7 +7,22 @@ module.exports = [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "script-src": ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net"],
+          "script-src": [
+            "'self'",
+            "'unsafe-inline'",
+            "cdn.jsdelivr.net",
+            "unsafe-eval",
+            "http://xxxx",
+            "https://xxxx",
+          ],
+          "style-src": [
+            "'self'",
+            "'unsafe-inline'",
+            "cdn.jsdelivr.net",
+            "unsafe-eval",
+            "http://xxxx",
+            "https://xxxx",
+          ],
           "img-src": ["'self'", "data:", "blob:"],
           "media-src": ["'self'", "data:", "blob:"],
           upgradeInsecureRequests: null,
