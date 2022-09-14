@@ -16,7 +16,7 @@ module.exports = createCoreController(
         .count({ where: query });
     },
 
-    async findByProducCategoryName(ctx) {
+    async findByProducCategorySlug(ctx) {
       let categories;
       const { category } = ctx.params;
       categories = await strapi.db
@@ -24,7 +24,7 @@ module.exports = createCoreController(
         .findOne({
           populate: true,
           where: {
-            name: {
+            slug: {
               $eq: category,
             },
           },
@@ -33,5 +33,24 @@ module.exports = createCoreController(
         categories: categories,
       };
     },
+
+    // async findByProducCategorySlug(ctx){
+    //      let brands;
+    //      const { category } = ctx.params;
+
+    //     brands = await strapi.db
+    //     .query("api::product-category.product-category")
+    //     .findOne({
+    //       populate: true,
+    //       where: {
+    //         $and:[
+    //           slug: {
+    //             $eq: category,
+    //           },
+    //         ]
+
+    //       },
+    //     });
+    // }
   }
 );

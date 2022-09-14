@@ -157,6 +157,7 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
   },
   async findShopProducts(ctx) {
     const { category } = ctx.query;
+    const { scategory } = ctx.query;
     let page;
     page = ctx.query.page ? ctx.query.page : 1;
     const { perPage } = ctx.query;
@@ -171,6 +172,20 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     const { searchTerm } = ctx.query;
     const { demo } = ctx.query;
     let sizeArray = [];
+    let categoryArray = [];
+    let scategorryArray = [];
+    let allCategories = [];
+
+    categoryArray = category ? category.split(",") : [];
+    scategorryArray = scategory ? scategory.split(",") : [];
+
+    //logic of concatenation betweeen categories and subcategories
+    if (scategorryArray.length > 0) {
+      allCategories = scategorryArray;
+    } else {
+      allCategories = categoryArray;
+    }
+    //
 
     sizeArray = size ? size.split(",") : [];
 
@@ -211,9 +226,10 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
 
     let filteredProducts = totalProducts.filter((product) => {
       let categoryFlag = false;
-      if (category) {
+      if (category || scategory) {
         for (let i = 0; i < product.categories.length; i++) {
-          product.categories[i].slug === category && (categoryFlag = true);
+          allCategories.includes(product.categories[i].slug) &&
+            (categoryFlag = true);
         }
       } else {
         categoryFlag = true;
