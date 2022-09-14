@@ -14,6 +14,14 @@ module.exports = [
       },
     },
   },
+  {
+    name: "strapi::cors",
+    config: {
+      enabled: true,
+      headers: "*",
+      origin: ["http://localhost:4500", "https://para-maroc.web.app"],
+    },
+  },
   "strapi::cors",
   "strapi::poweredBy",
   "strapi::logger",
