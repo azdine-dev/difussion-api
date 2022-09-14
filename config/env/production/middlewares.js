@@ -14,6 +14,7 @@ module.exports = [
             "unsafe-eval",
             "http://xxxx",
             "https://xxxx",
+            "https://www.google-analytics.com/analytics.js'",
           ],
           "style-src": [
             "'self'",
