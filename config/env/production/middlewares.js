@@ -7,9 +7,9 @@ module.exports = [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "script-src": ["https://www.google-analytics.com"],
-          "img-src": ["'self'", "data:", "blob:", "res.cloudinary.com"],
-          "media-src": ["'self'", "data:", "blob:", "res.cloudinary.com"],
+          "script-src": ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net"],
+          "img-src": ["'self'", "data:", "blob:"],
+          "media-src": ["'self'", "data:", "blob:"],
           upgradeInsecureRequests: null,
         },
       },
