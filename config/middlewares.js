@@ -37,6 +37,7 @@ module.exports = [
       enabled: true,
       headers: "*",
       origin: [
+        "https://difussion-api.herokuapp.com",
         "http://localhost:1337",
         "http://localhost:4500",
         "https://para-maroc.web.app",

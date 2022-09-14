@@ -36,7 +36,11 @@ module.exports = [
     config: {
       enabled: true,
       headers: "*",
-      origin: ["http://localhost:4500", "https://para-maroc.web.app"],
+      origin: [
+        "https://difussion-api.herokuapp.com",
+        "http://localhost:4500",
+        "https://para-maroc.web.app",
+      ],
     },
   },
   "strapi::cors",
