@@ -99,6 +99,12 @@
       "relation": "manyToMany",
       "target": "api::product-category.product-category",
       "mappedBy": "products"
+    },
+    "description": {
+      "type": "string"
+    },
+    "additional_info": {
+      "type": "string"
     }
   }
 }

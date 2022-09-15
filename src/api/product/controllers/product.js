@@ -91,6 +91,7 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     const relatedEntities = await strapi.db
       .query("api::product.product")
       .findMany({
+        populate: true,
         where: {
           id: {
             $in: filteredProductIds,
