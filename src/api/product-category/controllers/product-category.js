@@ -33,6 +33,25 @@ module.exports = createCoreController(
         categories: categories,
       };
     },
+    async getAllParentCategories(ctx) {
+      let categories;
+
+      categories = await strapi.db
+        .query("api::product-category.product-category")
+        .findMany({
+          populate: true,
+          where: {
+            up_category: {
+              id: {
+                $null: true,
+              },
+            },
+          },
+        });
+      return {
+        categories: categories,
+      };
+    },
 
     // async findByProducCategorySlug(ctx){
     //      let brands;

@@ -11,5 +11,10 @@ module.exports = {
       path: "/product-categories/categ/:category",
       handler: "product-category.findByProducCategorySlug",
     },
+    {
+      method: "GET",
+      path: "/product-categories/parents",
+      handler: "product-category.getAllParentCategories",
+    },
   ],
 };

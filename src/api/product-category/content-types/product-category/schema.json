@@ -39,6 +39,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::brand.brand"
+    },
+    "image": {
+      "allowedTypes": ["images", "files", "videos", "audios"],
+      "type": "media",
+      "multiple": false
     }
   }
 }
