@@ -258,7 +258,9 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
 
       let searchFlag = false;
       if (searchTerm) {
-        product.slug.includes(searchTerm) && (searchFlag = true);
+        (product.slug.includes(searchTerm) ||
+          product.name.includes(searchTerm)) &&
+          (searchFlag = true);
       } else {
         searchFlag = true;
       }
