@@ -101,7 +101,7 @@
       "mappedBy": "products"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "additional_info": {
       "type": "string"
