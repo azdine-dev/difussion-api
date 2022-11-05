@@ -104,7 +104,7 @@
       "type": "text"
     },
     "additional_info": {
-      "type": "string"
+      "type": "text"
     }
   }
 }
